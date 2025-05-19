@@ -1,0 +1,41 @@
+/*
+class Solution {
+    public String triangleType(int[] nums) {
+        Arrays.sort(nums);
+        if (nums[0] + nums[1] <= nums[2])
+            return "none";
+        if (nums[0] == nums[1] && nums[1] == nums[2]) {
+            return "equilateral";
+        }
+        if (nums[0] == nums[1] || nums[1] == nums[2]) {
+            return "isosceles";
+        }
+        return "scalene";
+    }
+}
+*/
+
+
+//faster
+class Solution {
+    public String triangleType(int[] nums) {
+        if (!isTriangle(nums)) return "none";
+        if (isEquilateral(nums)) return "equilateral";
+        if (isIsosceles(nums)) return "isosceles";
+        return "scalene";
+    }
+
+    private boolean isTriangle(int[] nums) {
+        return nums[0] + nums[1] > nums[2] &&
+               nums[0] + nums[2] > nums[1] &&
+               nums[1] + nums[2] > nums[0];
+    }
+
+    private boolean isEquilateral(int[] nums) {
+        return nums[0] == nums[1] && nums[1] == nums[2];
+    }
+
+    private boolean isIsosceles(int[] nums) {
+        return nums[0] == nums[1] || nums[1] == nums[2] || nums[0] == nums[2];
+    }
+}
