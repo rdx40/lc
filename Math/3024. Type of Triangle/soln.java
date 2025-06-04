@@ -15,6 +15,7 @@ class Solution {
 }
 */
 
+import java.util.*;
 
 //faster
 class Solution {
@@ -39,3 +40,17 @@ class Solution {
         return nums[0] == nums[1] || nums[1] == nums[2] || nums[0] == nums[2];
     }
 }
+
+public class soln{
+    public static void main(String[] args){
+        Solution sol = new Solution();
+        Scanner sc = new Scanner(System.in);
+        int[] nums = new int[3];
+        for (int i = 0; i < 3; i++) {
+            nums[i] = sc.nextInt();
+        }
+        String ans = sol.triangleType(nums);
+        System.out.println(ans);
+    }
+}
+
